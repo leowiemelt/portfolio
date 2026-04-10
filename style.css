@@ -15,6 +15,9 @@ ul, li {
 nav {
   display: flex;
   margin-bottom: auto;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
 }
 
 a {
@@ -23,4 +26,10 @@ a {
   color: inherit;
   text-align: center;
   padding: 0.5em;
+}
+
+:current {
+  border-bottom-width: 0.4em;
+  border-bottom-style: thick;
+  padding-bottom: 0.1em;
 }
