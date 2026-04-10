@@ -44,3 +44,14 @@ a:hover {
   padding-bottom: 0.1em;
   background-color: oklch(from var(--color-accent) 95% 5% h)
 }
+
+form {
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  margin-block: 0.5em;
+}
