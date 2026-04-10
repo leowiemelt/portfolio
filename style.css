@@ -33,3 +33,13 @@ a {
   border-bottom-style: thick;
   padding-bottom: 0.1em;
 }
+
+html {
+  --color-accent: oklch(88.048% 0.10727 149.861 / 0.463) /* a light green color */;
+  accent-color: var(--color-accent);
+}
+
+a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: 0.1em;
+}
