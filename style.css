@@ -48,6 +48,6 @@ form {
   box-sizing: border-box;
 }
 
-label {
+form label {
   margin-block: 0.5em;
 }
