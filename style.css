@@ -43,11 +43,6 @@ a:hover {
 
 form {
   font: inherit;
-  display: block;
-  width: 100%;
-}
-
-form label {
-  margin-block: 0.5em;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
