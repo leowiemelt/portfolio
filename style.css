@@ -8,10 +8,6 @@ body {
   padding: 5ch;
 }
 
-ul, li {
-  display: contents;
-}
-
 nav {
   display: flex;
   margin-bottom: auto;
