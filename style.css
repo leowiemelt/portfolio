@@ -40,7 +40,6 @@ a:hover {
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-
 label.color-scheme {
   position: absolute;
   top: 1rem;
@@ -52,7 +51,6 @@ label.color-scheme {
 label.color-scheme select {
   font-family: inherit;
 }
-
 form {
   font: inherit;
   display: grid;
@@ -73,16 +71,68 @@ button[type="submit"] {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-}
-
-article {
-  grid-template-rows: subgrid;
-  grid-row: span 3;
   gap: 1em;
 }
 
-article h2 {
+article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4; /* title, image, description, year */
+  gap: 0.5em;
+}
+
+article img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.25em;
+}
+
+article h2,
+article h3 {
   margin: 0;
+}
+
+.project-year {
+  margin: 0;
+  font-size: 0.8rem;
+  color: oklch(55% 5% 200);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#profile-stats {
+  margin-block: 2rem;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em 1em;
+  background: color-mix(in oklch, var(--color-accent), canvas 90%);
+  border-radius: 0.5em;
+  padding: 1rem;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: oklch(45% 5% 200);
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  /* Override default browser color since accent uses opacity */
+  color: oklch(55% 0.15 149);
 }
 
 h1 {
@@ -93,7 +143,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
-
 main > header {
   margin-block: 2rem 2.5rem;
   border-bottom: 1px solid oklch(80% 3% 200);
@@ -189,23 +238,4 @@ main > section:last-child p {
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
   margin: 0;
-}
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
-  align-items: start;  /* add this */
-}
-
-article {
-  display: grid;  /* add this — was missing */
-  gap: 0.5em;
-}
-
-article img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 0.25em;
 }
