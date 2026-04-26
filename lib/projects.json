@@ -12,63 +12,63 @@
     "description": "designed an expository visualization to clearly communicate an idea based on a small data set."
   },
   {
-    "title": "GitHub Profile Analyzer",
-    "year": "2024",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "A web app that fetches and displays GitHub user statistics using the GitHub API, including repos, followers, and activity."
+    "title": "NBA Bayes Net",
+    "year": "2025",
+    "image": "https://github.com/leowiemelt/portfolio/blob/main/images/image.png",
+    "description": "Used probabilistic modeling to predict NBA games with a Bayes Network architecture"
   },
   {
-    "title": "Weather App",
+    "title": "Cybersecurity Data Analysis",
     "year": "2024",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "A weather application that displays current conditions and forecasts using a public weather API with a clean, accessible UI."
+    "image": "https://github.com/leowiemelt/portfolio/blob/main/images/cybersecurity.png",
+    "description":  "Addressing what can lead to a cyber attack using a variety of statistical methods"
   },
   {
     "title": "Task Manager",
     "year": "2024",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/0/400/225",
     "description": "A full-stack task management app with user authentication, drag-and-drop task ordering, and persistent local storage."
   },
   {
     "title": "Recipe Finder",
     "year": "2023",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/42/400/225",
     "description": "A recipe search application that queries a public API, filters by dietary restrictions, and saves favorites to localStorage."
   },
   {
     "title": "Movie Review Aggregator",
     "year": "2023",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/61/400/225",
     "description": "A site that pulls movie ratings from multiple sources and aggregates them into a single score with sentiment analysis."
   },
   {
     "title": "Interactive Quiz App",
     "year": "2023",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/83/400/225",
     "description": "A timed multiple-choice quiz app with score tracking, progress bars, and randomized question ordering."
   },
   {
     "title": "Budget Tracker",
     "year": "2022",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/119/400/225",
     "description": "A personal finance tracker that visualizes income and expenses with charts and exports data to CSV."
   },
   {
     "title": "Markdown Note-Taking App",
     "year": "2022",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/180/400/225",
     "description": "A browser-based markdown editor with live preview, syntax highlighting, and autosave to localStorage."
   },
   {
     "title": "E-Commerce Product Page",
     "year": "2022",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/201/400/225",
     "description": "A responsive product listing page with filtering, sorting, and a shopping cart implemented in vanilla JavaScript."
   },
   {
     "title": "Typing Speed Test",
     "year": "2021",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "image": "https://picsum.photos/id/250/400/225",
     "description": "A typing speed and accuracy tester with WPM calculation, error highlighting, and a leaderboard stored in localStorage."
   }
 ]
