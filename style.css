@@ -190,3 +190,22 @@ main > section:last-child p {
   font-size: 0.9rem;
   margin: 0;
 }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  align-items: start;  /* add this */
+}
+
+article {
+  display: grid;  /* add this — was missing */
+  gap: 0.5em;
+}
+
+article img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.25em;
+}
