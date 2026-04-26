@@ -1,15 +1,15 @@
 [
   {
     "title": "Personal Portfolio Website",
-    "year": "2025",
+    "year": "2026",
     "image": "https://github.com/leowiemelt/portfolio/images/website.png",
     "description": "A responsive portfolio website built with HTML, CSS, and JavaScript featuring dark mode, dynamic navigation, and project templating."
   },
   {
-    "title": "Data Visualization Dashboard",
-    "year": "2025",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "An interactive dashboard visualizing datasets using D3.js, featuring bar charts, line graphs, and filterable views."
+    "title": "Expository Visualization",
+    "year": "2026",
+    "image": "https://github.com/leowiemelt/portfolio/images/proj1pic.png",
+    "description": "designed an expository visualization to clearly communicate an idea based on a small data set."
   },
   {
     "title": "GitHub Profile Analyzer",
