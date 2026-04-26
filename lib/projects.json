@@ -2,25 +2,25 @@
   {
     "title": "Personal Portfolio Website",
     "year": "2026",
-    "image": "https://github.com/leowiemelt/portfolio/images/website.png",
+    "image": "https://raw.githubusercontent.com/leowiemelt/portfolio/main/images/website.png",
     "description": "A responsive portfolio website built with HTML, CSS, and JavaScript featuring dark mode, dynamic navigation, and project templating."
   },
   {
     "title": "Expository Visualization",
     "year": "2026",
-    "image": "https://github.com/leowiemelt/portfolio/images/proj1pic.png",
+    "image": "https://raw.githubusercontent.com/leowiemelt/portfolio/main/images/proj1pic.png",
     "description": "designed an expository visualization to clearly communicate an idea based on a small data set."
   },
   {
     "title": "NBA Bayes Net",
     "year": "2025",
-    "image": "https://github.com/leowiemelt/portfolio/blob/main/images/image.png",
+    "image": "https://raw.githubusercontent.com/leowiemelt/portfolio/main/images/image.png",
     "description": "Used probabilistic modeling to predict NBA games with a Bayes Network architecture"
   },
   {
     "title": "Cybersecurity Data Analysis",
     "year": "2024",
-    "image": "https://github.com/leowiemelt/portfolio/blob/main/images/cybersecurity.png",
+    "image": "https://raw.githubusercontent.com/leowiemelt/portfolio/main/images/cybersecurity.png",
     "description":  "Addressing what can lead to a cyber attack using a variety of statistical methods"
   },
   {
