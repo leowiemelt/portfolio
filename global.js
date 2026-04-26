@@ -7,7 +7,7 @@ function $$(selector, context = document) {
 const BASE_PATH =
   location.hostname === "localhost" || location.hostname === "127.0.0.1"
     ? "/"       
-    : "/portfolio/";  
+    : "/portfolio/";
 
 let pages = [
   { url: "", title: "Home" },
@@ -79,11 +79,9 @@ form?.addEventListener("submit", function (event) {
 
   const data = new FormData(form);
   let params = [];
-
   for (let [name, value] of data) {
     params.push(`${name}=${encodeURIComponent(value)}`);
   }
-
   location.href = `${form.action}?${params.join("&")}`;
 });
 
@@ -116,15 +114,16 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
     containerElement.innerHTML = "<p>No projects to display.</p>";
     return;
   }
+
   for (let project of projects) {
     const article = document.createElement("article");
+
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
+      ${project.year ? `<p class="project-year">${project.year}</p>` : ""}
       <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
-      ${project.year ? `<p class="project-year">${project.year}</p>` : ""}
     `;
-
     containerElement.appendChild(article);
   }
 }
