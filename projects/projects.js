@@ -2,8 +2,6 @@ import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 const projects = await fetchJSON('../lib/projects.json');
-console.log('projects:', projects);
-console.log('container:', projectsContainer);
 const projectsContainer = document.querySelector('.projects');
 const searchInput = document.querySelector('input[type="search"]');
 
@@ -36,13 +34,11 @@ function renderPieChart(projectsGiven) {
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
 
-  // clear existing paths and legend items
   let svg = d3.select('#projects-pie-plot');
   svg.selectAll('path').remove();
   let legend = d3.select('.legend');
   legend.selectAll('li').remove();
 
-  // render new paths with click handler
   newArcs.forEach((arc, i) => {
     svg
       .append('path')
@@ -72,7 +68,6 @@ function renderPieChart(projectsGiven) {
       });
   });
 
-  // render new legend
   newData.forEach((d, idx) => {
     legend.append('li')
           .attr('style', `--color:${colors(idx)}`)
@@ -81,11 +76,9 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-// initial render
 renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects);
 
-// search handler
 searchInput.addEventListener('change', (event) => {
   selectedIndex = -1;
   let filteredProjects = setQuery(event.target.value);
