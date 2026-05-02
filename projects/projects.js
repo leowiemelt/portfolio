@@ -69,3 +69,66 @@ searchInput.addEventListener('change', (event) => {
   renderProjects(filteredProjects, projectsContainer, 'h2');
   renderPieChart(filteredProjects);
 });
+
+let selectedIndex = -1;
+
+function renderPieChart(projectsGiven) {
+  let newRolledData = d3.rollups(
+    projectsGiven,
+    (v) => v.length,
+    (d) => d.year,
+  );
+
+  let newData = newRolledData.map(([year, count]) => {
+    return { value: count, label: year };
+  });
+
+  let newSliceGenerator = d3.pie().value((d) => d.value);
+  let newArcData = newSliceGenerator(newData);
+  let newArcs = newArcData.map((d) => arcGenerator(d));
+
+  let svg = d3.select('#projects-pie-plot');
+  svg.selectAll('path').remove();
+  d3.select('.legend').selectAll('li').remove();
+
+  // render new paths
+  newArcs.forEach((arc, i) => {
+    svg
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(i))
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+
+        // highlight selected wedge
+        svg
+          .selectAll('path')
+          .attr('class', (_, idx) => idx === selectedIndex ? 'selected' : '');
+
+        // highlight selected legend item
+        legend
+          .selectAll('li')
+          .attr('class', (_, idx) =>
+            idx === selectedIndex ? 'legend-item selected' : 'legend-item'
+          );
+
+        // filter projects by selected year
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2');
+        } else {
+          let filteredProjects = projects.filter(
+            (p) => p.year === newData[selectedIndex].label
+          );
+          renderProjects(filteredProjects, projectsContainer, 'h2');
+        }
+      });
+  });
+
+  let legend = d3.select('.legend');
+  newData.forEach((d, idx) => {
+    legend.append('li')
+          .attr('style', `--color:${colors(idx)}`)
+          .attr('class', 'legend-item')
+          .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  });
+}
