@@ -63,7 +63,7 @@ renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects);
 
 // re-render on search
-const searchInput = document.querySelector('input[type="text"]');
+const searchInput = document.querySelector('input[type="search"]');
 searchInput.addEventListener('change', (event) => {
   let filteredProjects = setQuery(event.target.value);
   renderProjects(filteredProjects, projectsContainer, 'h2');
