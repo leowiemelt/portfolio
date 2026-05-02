@@ -1,10 +1,10 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-const projects = await fetchJSON('../lib/projects.json');
+
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
-
+let projects = fetchJSON("lib/projects.json")
 let data = rolledData.map(([year, count]) => {
   return { value: count, label: year };
 });
@@ -37,14 +37,13 @@ export async function fetchJSON(url) {
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
   }
-let projects = fetchJSON("lib/projects.json")
+}
+
 let rolledData = d3.rollups(
   projects,
   (v) => v.length,
   (d) => d.year,
 );
-
-
 
 let query = '';
 let searchInput = document.querySelector('.searchBar');
