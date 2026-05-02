@@ -24,10 +24,10 @@
     "description":  "Addressing what can lead to a cyber attack using a variety of statistical methods"
   },
   {
-    "title": "Task Manager",
-    "year": "2024",
-    "image": "https://picsum.photos/id/0/400/225",
-    "description": "A full-stack task management app with user authentication, drag-and-drop task ordering, and persistent local storage."
+    "title": "Policing Analysis",
+    "year": "2026",
+    "image": "https://raw.githubusercontent.com/leowiemelt/policing_analysis/main/policing_pics/pic1.png",
+    "description": "Veil of Darkness test to find evidence of racial diparities in policing, analysis of hit rates for police searches."
   },
   {
     "title": "Recipe Finder",
