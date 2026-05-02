@@ -2,6 +2,8 @@ import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 const projects = await fetchJSON('../lib/projects.json');
+console.log('projects:', projects);
+console.log('container:', projectsContainer);
 const projectsContainer = document.querySelector('.projects');
 const searchInput = document.querySelector('input[type="search"]');
 
