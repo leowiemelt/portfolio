@@ -5,14 +5,9 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
-let data = [
-  { value: 1, label: 'apples' },
-  { value: 2, label: 'oranges' },
-  { value: 3, label: 'mangos' },
-  { value: 4, label: 'pears' },
-  { value: 5, label: 'limes' },
-  { value: 5, label: 'cherries' },
-];
+let data = rolledData.map(([year, count]) => {
+  return { value: count, label: year };
+});
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let sliceGenerator = d3.pie().value((d) => d.value);
@@ -33,4 +28,34 @@ data.forEach((d, idx) => {
         .attr('style', `--color:${colors(idx)}`)
         .attr('class', 'legend-item')
         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+});
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+let projects = fetchJSON("lib/projects.json")
+let rolledData = d3.rollups(
+  projects,
+  (v) => v.length,
+  (d) => d.year,
+);
+
+
+
+let query = '';
+let searchInput = document.querySelector('.searchBar');
+searchInput.addEventListener('change', (event) => {
+  // update query value
+  query = event.target.value;
+  // filter projects
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
+  // render filtered projects
+  renderProjects(filteredProjects, projectsContainer, 'h2');
 });
