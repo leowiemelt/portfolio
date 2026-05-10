@@ -222,6 +222,11 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY}px`;
 }
 
+function brushed(event) {
+  console.log(event);
+}
+
 function createBrushSelector(svg) {
-  svg.call(d3.brush());
+  svg.call(d3.brush().on('start brush end', brushed));
+  svg.selectAll('.dots, .overlay ~ *').raise();
 }
