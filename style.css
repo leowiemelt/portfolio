@@ -331,3 +331,40 @@ path {
   text-decoration: underline dotted;
   cursor: help;
 }
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+}
+
+dl.info dt {
+  margin: 0;
+  font-weight: 600;
+  color: oklch(45% 3% 200);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: 500;
+  color: #111;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}

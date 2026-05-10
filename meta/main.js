@@ -176,6 +176,21 @@ function renderScatterPlot(data, commits) {
     .append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
+  
+  dots
+  .selectAll('circle')
+  .data(commits)
+  .join('circle')
+  .attr('cx', (d) => xScale(d.datetime))
+  .attr('cy', (d) => yScale(d.hourFrac))
+  .attr('r', 5)
+  .attr('fill', 'steelblue')
+  .on('mouseenter', (event, commit) => {
+    renderTooltipContent(commit);
+  })
+  .on('mouseleave', () => {
+    document.getElementById('commit-tooltip').style.display = 'none';
+  });
 }
 renderScatterPlot(data, commits);
 
