@@ -97,15 +97,6 @@ function renderCommitInfo(data, commits) {
   dl.append('dt').text('Maximum depth');
   dl.append('dd').text(maxDepth);
 
-  dl.append('dt').text('Deepest line');
-  dl.append('dd').text(`${deepestLine.file}:${deepestLine.line}`);
-
-  dl.append('dt').text('Average depth');
-  dl.append('dd').text(avgDepth.toFixed(2));
-
-  dl.append('dt').text('Average file depth');
-  dl.append('dd').text(avgFileDepth.toFixed(2));
-
   dl.append('dt').text('Day of week most work done');
   dl.append('dd').text(mostWorkDay);
 
@@ -134,13 +125,19 @@ function renderScatterPlot(data, commits) {
   const dots = svg.append('g').attr('class', 'dots');
 
   dots
-    .selectAll('circle')
-    .data(commits)
-    .join('circle')
-    .attr('cx', (d) => xScale(d.datetime))
-    .attr('cy', (d) => yScale(d.hourFrac))
-    .attr('r', 5)
-    .attr('fill', 'steelblue');
+  .selectAll('circle')
+  .data(commits)
+  .join('circle')
+  .attr('cx', (d) => xScale(d.datetime))
+  .attr('cy', (d) => yScale(d.hourFrac))
+  .attr('r', 5)
+  .attr('fill', 'steelblue')
+  .on('mouseenter', (event, commit) => {
+    renderTooltipContent(commit);
+  })
+  .on('mouseleave', () => {
+    document.getElementById('commit-tooltip').style.display = 'none';
+  });
   const margin = { top: 10, right: 10, bottom: 30, left: 20 };
   const usableArea = {
   top: margin.top,
@@ -176,21 +173,6 @@ function renderScatterPlot(data, commits) {
     .append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
-  
-  dots
-  .selectAll('circle')
-  .data(commits)
-  .join('circle')
-  .attr('cx', (d) => xScale(d.datetime))
-  .attr('cy', (d) => yScale(d.hourFrac))
-  .attr('r', 5)
-  .attr('fill', 'steelblue')
-  .on('mouseenter', (event, commit) => {
-    renderTooltipContent(commit);
-  })
-  .on('mouseleave', () => {
-    document.getElementById('commit-tooltip').style.display = 'none';
-  });
 }
 renderScatterPlot(data, commits);
 
