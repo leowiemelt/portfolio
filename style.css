@@ -357,6 +357,11 @@ dl.info dd {
   position: fixed;
   top: 1em;
   left: 1em;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  padding: 1rem;
 }
 
 circle {
@@ -367,4 +372,15 @@ circle {
 
 circle:hover {
   transform: scale(1.5);
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
 }
