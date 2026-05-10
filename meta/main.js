@@ -164,6 +164,7 @@ function renderScatterPlot(data, commits) {
     .call(yAxis);
 
   // 3. Dots on top
+  createBrushSelector(svg);
   const dots = svg.append('g').attr('class', 'dots');
   const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
   const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]); 
@@ -219,4 +220,8 @@ function updateTooltipPosition(event) {
   const tooltip = document.getElementById('commit-tooltip');
   tooltip.style.left = `${event.clientX}px`;
   tooltip.style.top = `${event.clientY}px`;
+}
+
+function createBrushSelector(svg) {
+  svg.call(d3.brush());
 }
