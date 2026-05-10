@@ -106,6 +106,7 @@ let data = await loadData();
 let commits = processCommits(data);
 
 renderCommitInfo(data, commits);
+let xScale, yScale;
 
 function renderScatterPlot(data, commits) {
   const width = 1000;
@@ -117,13 +118,13 @@ function renderScatterPlot(data, commits) {
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
 
-  const xScale = d3
+    xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
     .range([0, width])
     .nice();
 
-  const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
+  yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
 
   const margin = { top: 10, right: 10, bottom: 30, left: 20 };
   const usableArea = {
@@ -223,10 +224,40 @@ function updateTooltipPosition(event) {
 }
 
 function brushed(event) {
-  console.log(event);
+  const selection = event.selection;
+  d3.selectAll('circle').classed('selected', (d) =>
+    isCommitSelected(selection, d),
+  );
+  renderSelectionCount(selection);
+}
+
+function isCommitSelected(selection, commit) {
+  if (!selection) {
+    return false;
+  }
+  // TODO: return true if commit is within brushSelection
+  // and false if not
+  const [x0, y0] = selection[0];
+  const [x1, y1] = selection[1];
+  const cx = xScale(commit.datetime);
+  const cy = yScale(commit.hourFrac);
+  return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
 }
 
 function createBrushSelector(svg) {
   svg.call(d3.brush().on('start brush end', brushed));
   svg.selectAll('.dots, .overlay ~ *').raise();
+}
+
+function renderSelectionCount(selection) {
+  const selectedCommits = selection
+    ? commits.filter((d) => isCommitSelected(selection, d))
+    : [];
+
+  const countElement = document.querySelector('#selection-count');
+  countElement.textContent = `${
+    selectedCommits.length || 'No'
+  } commits selected`;
+
+  return selectedCommits;
 }
