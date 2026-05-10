@@ -62,9 +62,6 @@ function renderCommitInfo(data, commits) {
   const maxLineLength = d3.max(data, d => d.length);
   const longestLine = data.find(d => d.length === maxLineLength);
   const maxDepth = d3.max(data, d => d.depth);
-  const deepestLine = data.find(d => d.depth === maxDepth);
-  const avgDepth = d3.mean(data, d => d.depth);
-  const avgFileDepth = d3.mean(files, f => d3.max(f.lines, l => l.depth));
 
   // Day of week stats
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
