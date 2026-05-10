@@ -173,9 +173,14 @@ function renderScatterPlot(data, commits) {
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
     .attr('r', 5)
-    .attr('fill', 'steelblue');
+    .attr('fill', 'steelblue')
+    .on('mouseenter', (event, commit) => {
+    renderTooltipContent(commit);
+    })
+    .on('mouseleave', () => {
+    document.getElementById('commit-tooltip').style.display = 'none';
+    });
 }
-renderScatterPlot(data, commits);
 
 function renderTooltipContent(commit) {
   const link = document.getElementById('commit-link');
@@ -189,3 +194,5 @@ function renderTooltipContent(commit) {
     dateStyle: 'full',
   });
 }
+
+renderScatterPlot(data, commits);
